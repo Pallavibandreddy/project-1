@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<body background="/static/pallavi.jpg">
+<h1 style="text-align:center;font-size:30px;color:black;"><i>E-MAIL SPAM CLASSIFIER</i></h1>
+</body>
+</html> 
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px; 
+        }
+
+        nav a {
+            text-decoration: none;
+            color: maroon; 
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/home">HOME</a></li>
+            <li><a href="/about">ABOUT</a></li>
+            <li><a href="/spamer">SPAM CLASSIFIER</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spam/Ham Email Detector</title>
+</head>
+<body background="/static/pallavi.jpg">
+</body>
+
+    <style>
+        /* Style the header */
+        h1 {
+            color: rgb(113, 6, 50);
+            text-align: left;
+        }
+
+        /* Style the textarea */
+        #emailText {
+            width: 30%;
+            line-height: 10px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: peachpuff;
+        }
+
+        /* Style the button */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Style the classification result paragraph */
+        #classificationResult {
+            font-weight: bold;
+            margin-top: 50px;
+            text-align: left;
+        color: navy;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Spam/Ham Email Detector</h1>
+    
+    <textarea id="emailText" rows="10" cols="50" placeholder="Enter the email text here"></textarea>
+    
+    <button onclick="classifyEmail()">Classify</button>
+    
+    <p id="classificationResult"></p>
+
+    <script>
+        function classifyEmail() {
+            // Get the email text from the textarea
+            var emailText = document.getElementById("emailText").value.toLowerCase();
+
+            // Define spam keywords (you can expand this list)
+            var spamKeywords = ["free", "win", "discount", "prize", "guaranteed", "click here"];
+
+            // Check if any spam keyword is present in the email text
+            var isSpam = false;
+            for (var i = 0; i < spamKeywords.length; i++) {
+                if (emailText.includes(spamKeywords[i])) {
+                    isSpam = true;
+                    break;
+                }
+            }
+
+            // Display the classification result
+            var classificationResult = document.getElementById("classificationResult");
+            if (isSpam) {
+                classificationResult.innerHTML = "Classification: Spam";
+            } else {
+                classificationResult.innerHTML = "Classification: Ham (Not Spam)";
+            }
+        }
+    </script>
+</body>
+</html>
